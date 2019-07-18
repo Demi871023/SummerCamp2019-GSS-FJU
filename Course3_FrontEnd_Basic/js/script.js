@@ -82,7 +82,7 @@ $(function(){
             ]
         });
     });
-
+    //新增書籍的kendoWindow
     $("#window").kendoWindow({
         width: "600px",
         title: "Create a book",
