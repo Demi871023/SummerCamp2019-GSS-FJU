@@ -1,0 +1,14 @@
+--1.	請列出每個借閱人每年借書數量，並依借閱人編號和年度做排序
+
+SELECT	KEEPER_ID AS KeeperId, 
+		USER_CNAME AS CName, 
+		USER_ENAME AS EName, 
+		YEAR(LEND_DATE) AS BorrowYear, 
+		COUNT(*) AS BorrowCnt
+FROM BOOK_LEND_RECORD AS blr
+	INNER JOIN MEMBER_M AS mm
+		ON blr.KEEPER_ID = mm.[USER_ID]
+GROUP BY KEEPER_ID, USER_CNAME, USER_ENAME, YEAR(LEND_DATE)
+ORDER BY KEEPER_ID, BorrowYear
+
+
